@@ -14,7 +14,7 @@ As of the publish date NT8 files are found by default in
 NinjaTrader.GlobalOptions.HistoricalDataPath = $"{driveletter}:\Users\{yourusername}\Documents\NinjaTrader 8\db";
 ```
 
-2) Create the Helperobject...
+### 2) Create the Helperobject...
 
 ```csharp
 DateTime startDateTime = new DateTime.ParseExact("092719", "MMddyy", CultureInfo.InvariantCulture);
@@ -23,7 +23,7 @@ int numberDaysBack = 7;
 NCDFiles myFiles = new NCDFiles(NCDFileType.Minute, "AAPL", startDateTime, numberDaysForward, numberDaysBack);
 ```
 
-3) Process the files...
+### 3) Process the files...
 
 ```csharp
 while (!myFiles.EndOfData)
@@ -44,5 +44,7 @@ while (!myFiles.EndOfData)
 ```
 
 Feel free to reach out to me directly if you have any questions or comments or would like any custom libraries developed that utilize the files.
+
+Enjoy!
 
 jrstokka gmail or skype jrstokka
