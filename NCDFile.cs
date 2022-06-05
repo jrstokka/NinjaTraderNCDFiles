@@ -52,6 +52,10 @@ namespace RespondClient.DomiKnow.NinjaTrader
         {
             return (mask2 & checkflag) == checkflag;
         }
+
+        public static bool Between(this DateTime date, DateTime start, DateTime end) {
+            return date >= start && date <= end;
+        }
     }
     [Flags]
     public enum NCDFileType
