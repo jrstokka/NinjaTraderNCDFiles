@@ -69,6 +69,7 @@ namespace RespondClient.DomiKnow.NinjaTrader
         Time4 = 3,                      // x.....011
         Time8 = 4,                      // x.....100
         Time1Secs = 5,                  // x.....101
+        Time1SecsL = 6,                 // x.....110
         Ask = 8,                        // x..xx1...  
         DefaultSpreadX2 = 16,           // x..x1x...  
         DefaultSpreadX3 = 32,           // x..1xx...  
@@ -284,6 +285,11 @@ namespace RespondClient.DomiKnow.NinjaTrader
             if (mask1.HasOption(TickMask1Flags.Time1Secs))
             {
                 timeDelta = _br.ReadByte();
+                barDateTime = _lastDateTime.AddTicks((long)(timeDelta * 10000000));
+            }
+            else if (mask1.HasOption(TickMask1Flags.Time1SecsL))
+            {
+                timeDelta = _br.ReadUInt16BE();
                 barDateTime = _lastDateTime.AddTicks((long)(timeDelta * 10000000));
             }
             else if (mask1.HasOption(TickMask1Flags.Time8))
